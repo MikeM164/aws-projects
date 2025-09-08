@@ -2,7 +2,7 @@
 This repository features a collection of projects that demonstrate various AWS services and solutions. 
 
 Projects
-1. Wordpress on AWS with EC2, RDS and ALB
+1. Create highly available Wordpress application on AWS
    - Description: Designing a resilient, scalable WordPress web application on AWS
    - Service used: VPC, EC2, IAM, RDS, ALB and Secrets Manager
    - Project directory: 
