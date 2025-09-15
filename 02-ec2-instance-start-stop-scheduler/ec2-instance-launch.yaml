@@ -1,0 +1,37 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: EventBridge Scheduler that triggers a Lambda function
+
+Resources:
+
+  DevSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Enable SSH and HTTP
+      VpcId: vpc-0b1533cf6802f4cdf   
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 0.0.0.0/0
+
+  DevInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      AvailabilityZone: us-east-1a
+      ImageId: ami-a4c7edb2
+      InstanceType: t2.micro
+      SecurityGroupIds:
+        - !Ref DevSecurityGroup
+      Tags:
+        - Key: Name
+          Value: dev-instance
+
+Outputs:
+  DevInstanceId:
+    Value: !Ref DevInstance  
+    Export:
+      Name: DevInstanceId

@@ -1,19 +1,30 @@
-EC2 instance Start and Stop scheduler
+EC2 Instance Start and Stop Scheduler
 
-## OVERVIEW
-This project provisions a secure AWS VPC, deploys a WordPress application on EC2, and connects it to an RDS MySQL database in private subnets.
+Overview
+This project implements a cost optimization solution by automating the start and stop of Amazon EC2 instances in a development environment. It leverages Amazon EventBridge Scheduler to trigger AWS Lambda functions at defined times.
 
-## ARCHITECTURE
-- Amazon EventsBridge Scheduler - two schedulers that trigger the Lambda functions
-- Lambda - two functions that start and stop EC2 instances respectively
-- IAM Role - to enable schedulers to trigger Lambda functions, and the one to allow Lambda to  start/stop EC2 instances
-- Cloudwatch logs - Show Lambda execution process
+Morning → Start the EC2 instance
+End of business day → Stop the EC2 instance
 
-## DEPLOYMENT
-- Provisioned using Cloudformation
+This ensures that development resources only run when needed, reducing unnecessary compute costs.
 
+Architecture
+- Amazon EventBridge Scheduler – Two schedules configured to invoke Lambda functions.
+- AWS Lambda – One function to start the EC2 instance, another to stop it.
+- IAM Roles –
+    (i)   Scheduler role: Grants permissions to invoke Lambda functions.
+    (ii)  Lambda role: Grants permissions to start/stop EC2 instances.
+- Amazon CloudWatch Logs – Captures Lambda execution details for observability.
 
-## LEARNING OUTCOMES
-- Designed a highly available, secure VPC  
-- Automated EC2 + RDS provisioning  
-- Configured WordPress with RDS backend
+Deployment
+- Infrastructure is provisioned using AWS CloudFormation.
+- Templates define EC2, IAM roles, Lambda functions, and EventBridge schedules.
+
+Learning Outcomes
+- Designed and implemented a cost optimization automation for EC2 workloads.
+- Gained experience with:
+    (i)   Event-driven automation using EventBridge Scheduler.
+    (ii)  Serverless compute with Lambda.
+    (iii) Infrastructure as Code (IaC) via CloudFormation.
+
+- Learned how to integrate multiple AWS services (EventBridge, Lambda, EC2, IAM, CloudWatch) into a cohesive solution.
