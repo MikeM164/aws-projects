@@ -36,32 +36,36 @@ Execution logs are captured in CloudWatch.
 ![alt text](<images/architecture.png>)
 
 ## PROVISIONED RESOURCES
-Below is the EC2 instance that was launched via Cloudformation. The instance will be stopped so that it can be started by the Lambda function triggered by the scheduler and later on be stopped by another lamda function. 
+Below is the EC2 instance that was launched via Cloudformation. The instance will be stopped so that it can be started by the Lambda function triggered by the scheduler and later on be stopped by another lambda function. 
 
 ### EC2 instance launched by Cloudformation
-Creating EC2 launch Cloudformation Stack
+- Creating EC2 launch Cloudformation Stack
 
 ![alt text](<images/ec2-instance-cf-launch.png>)
 
-Cloudformation Stack completed
+
+- Cloudformation Stack completed
 
 ![alt text](<images/ec2-instance-cf-launch-complete.png>)
 
-EC2 instance running after launch
+
+- EC2 instance running after launch
 
 ![alt text](<images/ec2-instance-running.png>)
 
-EC2 instance stopped in order to be started later by Lambda function
+
+- EC2 instance stopped in order to be started later by Lambda function
 
 ![alt text](<images/ec2-instance-stopped-manually.png>)
 
 
 ### EventBridge Schedulers and Lambdas Cloudformation Stack
-Creating Cloudformation Stack for Schedulers and Lambdas
+- Creating Cloudformation Stack for Schedulers and Lambdas
 
 ![alt text](<images/lambda-scheduler-create.png>)
 
-Cloudformation Stack completed
+
+- Cloudformation Stack completed
 
 ![alt text](<images/lambda-scheduler-create-complete.png>)
 
@@ -72,6 +76,7 @@ Two schedules are created:s
 
 ![alt text](<images/eventbridge-schedulers.png>)
 
+
 ### 2. Lambda Functions
 Two Lambda functions handle the start and stop actions:  
 - **StartEC2InstanceLambda**  
@@ -80,19 +85,21 @@ Two Lambda functions handle the start and stop actions:
 ![alt text](<images/lambda-functions.png>) 
 
 ### 3. EC2 Instance and Cloudwatch Logs
-The target EC2 instance (dev environment) that is started by the Lambda function.
+- The target EC2 instance (dev environment) that is started by the Lambda function.
 
 ![alt text](<images/ec2-instance-started-by-lambda.png>) 
 
-Cloudwatch logs showing the execution logs for Lambda function, confirming when the EC2 instance was started
+
+- Cloudwatch showing the execution logs for Lambda function, confirming when the EC2 instance was started
 ![alt text](<images/ec2-instance-start-logs.png>) 
 
 
-The target EC2 instance (dev environment) that is stopped by the Lambda function.
+- The target EC2 instance (dev environment) that is stopped by the Lambda function.
 
 ![alt text](<images/ec2-instance-stopped-by-lambda.png>) 
 
-Cloudwatch logs showing the execution logs for Lambda function, confirming when the EC2 instance was stopped
+
+- Cloudwatch showing the execution logs for Lambda function, confirming when the EC2 instance was stopped
 ![alt text](<images/ec2-instance-stop-logs.png>) 
 
 
