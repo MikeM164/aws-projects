@@ -17,7 +17,7 @@ This project provisions a secure AWS VPC, deploys a WordPress application on EC2
 - Application is bootstrapped with userdata script
 
 ## DIAGRAM
-![alt text](<images/VPC diagram.png>)
+![alt text](<images/architecture.png>)
 
 
 ## LEARNING OUTCOMES

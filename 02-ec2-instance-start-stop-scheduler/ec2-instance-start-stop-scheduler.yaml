@@ -90,7 +90,7 @@ Resources:
       Name: StartEC2LambdaScheduler
       FlexibleTimeWindow:
         Mode: "OFF"
-      ScheduleExpression: cron(17 10 * * ? *) # specified time   
+      ScheduleExpression: cron(0 11 * * ? *) 
       Target:
         Arn: !GetAtt StartEC2InstanceLambda.Arn
         RoleArn: !GetAtt SchedulerRole.Arn
@@ -101,7 +101,7 @@ Resources:
       Name: StopEC2LambdaScheduler
       FlexibleTimeWindow:
         Mode: "OFF"
-      ScheduleExpression: cron(25 10 * * ? *) # specified time
+      ScheduleExpression: cron(15 11 * * ? *) 
       Target:
         Arn: !GetAtt StopEC2InstanceLambda.Arn
         RoleArn: !GetAtt SchedulerRole.Arn  
