@@ -2,8 +2,12 @@ name: Build WordPress AMI
 
 on:
   push:
-    paths:
-      - "packer/**"
+    branches:
+      - main
+
+defaults:
+  run:
+    working-directory: packer
 
 jobs:
   packer:
